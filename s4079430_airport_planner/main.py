@@ -11,8 +11,8 @@ def main():
     sample_code = "SGN"
     if sample_code in airports:
         sample = airports[sample_code]
-        print(f"\nExample lookup - {sample_code}: {sample.name}, {sample.country} "f"({sample.latitude:.4f}, {sample.longitude:.4f})")
-        print("Destination from {sample_code}: {len(graph[sample_code])}")
+        print(f"\nExample lookup - {sample_code}: {sample.name}, {sample.country} "f"({sample.latitude:.4f}, {sample.longtitude:.4f})")
+        print(f"Destination from {sample_code}: {len(graph[sample_code])}")
         
 if __name__ == "__main__":
     main()
