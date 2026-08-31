@@ -13,3 +13,6 @@ def main():
         sample = airports[sample_code]
         print(f"\nExample lookup - {sample_code}: {sample.name}, {sample.country} "f"({sample.latitude:.4f}, {sample.longitude:.4f})")
         print("Destination from {sample_code}: {len(graph[sample_code])}")
+        
+if __name__ == "__main__":
+    main()
