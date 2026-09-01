@@ -1,5 +1,11 @@
-import csv
-#mapping, skip airports with no IATA, and skip routes without airports
+"""
+@author
+Student name: Nguyễn Đặng Quốc An
+Student ID: s4079430
+Course: COSC2469
+"""
+import csv #[1], [2]
+#mapping, skip airports with no IATA, and skip routes without airports(start and destination)
 class Airports:
     def __init__(self, iata, name, country, latitude, longtitude):
         self.iata = iata
@@ -43,3 +49,9 @@ def load_network(airports_filepath, routes_filepath):
     airports = load_airports(airports_filepath)
     graph = load_routes(routes_filepath, airports)
     return airports, graph
+
+"""
+Reference List
+[1] "Python CSV Module - Read and Write CSV Files," YouTube, 2022. [Online]. Available: https://www.youtube.com/watch?v=ozKsfsldV7M. [Accessed: Aug. 31, 2026].
+[2] Indre, "Data cleaning in Python: A step-by-step guide," DataCamp, 2023. [Online]. Available: https://www.datacamp.com/tutorial/guide-to-data-cleaning-in-python. [Accessed: Aug. 31, 2026].
+"""

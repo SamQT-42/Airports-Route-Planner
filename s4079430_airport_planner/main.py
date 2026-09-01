@@ -1,6 +1,14 @@
+"""
+@author
+Student name: Nguyễn Đặng Quốc An
+Student ID: s4079430
+Course: COSC2469
+"""
+
 #1st iteration log: Added simple entry point, and checks if data is cleaned before continue building
+#Test cases using sample data
 #2nd iteration log: Apply BFS and testing (all test passed)
-#3rd iteration log: Apply Dijskta and testing (ongoing)
+#3rd iteration log: Apply Dijskta and testing (all test passed)
 
 import time
 from algorithms import bfs_min_stops, route_total_distance, dijkstra_shortest_distance

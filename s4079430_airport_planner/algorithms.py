@@ -1,3 +1,10 @@
+"""
+@author
+Student name: Nguyễn Đặng Quốc An
+Student ID: s4079430
+Course: COSC2469
+"""
+
 #BFS for tracking cheapest path (hops)
 #Dijkstra for shortest distance (km)
 #Haversine for determine the great-circle distance between two points on a sphere given their longitudes and latitudes.
@@ -52,7 +59,7 @@ def bfs_min_stops(graph, source, destination): #[2]
                 queue.append(neighbour)
     return None
 
-def dijkstra_shortest_distance(graph, airports, source, destination): #[3]
+def dijkstra_shortest_distance(graph, airports, source, destination): #[3], [4]
     if source == destination:
         return [source], 0.0
     
@@ -61,7 +68,7 @@ def dijkstra_shortest_distance(graph, airports, source, destination): #[3]
     visited = set()
     priority_queue = [(0.0, source)]
     
-    while priority_queue:
+    while priority_queue: #[6]
         current_distance, current = heapq.heappop(priority_queue)
         
         if current in visited:
@@ -94,10 +101,12 @@ def dijkstra_shortest_distance(graph, airports, source, destination): #[3]
 
 """
 Reference list
-[1] https://en.wikipedia.org/wiki/Haversine_formula
-[2] https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/
-[3] https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
-
+[1] "Haversine formula," Wikipedia, The Free Encyclopedia. [Online]. Available: https://en.wikipedia.org/wiki/Haversine_formula. [Accessed: Sep. 1, 2026].
+[2] "Breadth First Search or BFS for a Graph," GeeksforGeeks. [Online]. Available: https://www.geeksforgeeks.org/dsa/breadth-first-search-or-bfs-for-a-graph/. [Accessed: Sep. 1, 2026].
+[3] "Dijkstra's algorithm," Wikipedia, The Free Encyclopedia. [Online]. Available: https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm. [Accessed: Sep. 1, 2026].
+[4] "Implementing the Dijkstra Algorithm in Python: A Step-by-Step Tutorial," DataCamp, May 28, 2024. [Online]. Available: https://www.datacamp.com/tutorial/dijkstra-algorithm-in-python. [Accessed: Sep. 1, 2026].
+[5] "Python Program For Dijkstra's Algorithm | Graph Data Structure," YouTube, Apr. 18, 2025. [Online]. Available: https://www.youtube.com/watch?v=u33NM1pZvoM. [Accessed: Sep. 1, 2026].
+[6] "Performance improvement for Dijkstra algorithm using heaps in python?" Stack Overflow, Mar. 29, 2022. [Online]. Available: https://stackoverflow.com/questions/71663362/performance-improvement-for-dijkstra-algorithm-using-heaps-in-python. [Accessed: Sep. 1, 2026].
 """
 
     
