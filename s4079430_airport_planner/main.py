@@ -3,6 +3,7 @@
 Student name: Nguyễn Đặng Quốc An
 Student ID: s4079430
 Course: COSC2469
+link to Github repo: https://github.com/SamQT-42/Airports-Route-Planner
 """
 
 #1st iteration log: Added simple entry point, and checks if data is cleaned before continue building
@@ -48,7 +49,8 @@ def main():
     
     if min_stop_route is None:
         print(f"No route found from {source} to {destination}")
-    
+        return
+
     print("Minimum-stop route:")
     print_route(min_stop_route, airports)
     print(f"Running time: {min_stop_time:.4f} seconds")
@@ -59,7 +61,7 @@ def main():
     
     print("\nShortest distance route:")
     print_route(shortest_route, airports, distance=shortest_distance)
-    print(f"Running time: {min_stop_time:.4f} seconds")
+    print(f"Running time: {shortest_time:.4f} seconds")
     
 if __name__ == "__main__":
     main()
