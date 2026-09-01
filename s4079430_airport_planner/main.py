@@ -1,5 +1,6 @@
 #1st iteration log: Added simple entry point, and checks if data is cleaned before continue building
-#2nd iteration log: 
+#2nd iteration log: Apply BFS and testing
+#3rd iteration log: 
 import time
 from algorithms import bfs_min_stops, route_total_distance
 from data_loader import load_network
@@ -13,21 +14,21 @@ def print_route(route, airports, distance=None):
     
     if distance is None:
         distance = route_total_distance(route, airports)
-    print(f"Route: {' -->'.join(route)}")
+    print(f"Route: {' --> '.join(route)}")
     print(f"Number of flights: {num_flights}")
     print(f"Number of stops: {num_stops}")
     print(f"Total estimated distance: {distance:,.0f} km")
 
 def main():
     airports, graph = load_network(AIRPORTS_FILES, ROUTES_FILES)
-    source = input("Start from airport (IATA): ")
-    destination = input("Destination airport (IATA): ")
+    source = input("Start from airport (IATA): ").upper()
+    destination = input("Destination airport (IATA): ").upper()
     
     if source not in airports:
-        print(f"\nError: '{source} Source Code not found in dataset")
+        print(f"\nError: {source} Source Code not found in dataset")
         return
     if destination not in airports:
-        print(f"\nError: Destination Code not found in dataset")
+        print(f"\nError: {destination} Destination Code not found in dataset")
         return
     
     print()
