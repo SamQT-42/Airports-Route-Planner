@@ -8,7 +8,7 @@ link to Github repo: https://github.com/SamQT-42/Airports-Route-Planner
 
 #BFS for tracking cheapest path (hops)
 #Dijkstra for shortest distance (km)
-#Haversine for determine the great-circle distance between two points on a sphere given their longitudes and latitudes.
+#Haversine for determine the great-circle distance between two points on a sphere(EARTH) given their longitudes and latitudes.
 
 import math
 import heapq
