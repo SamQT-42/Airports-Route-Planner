@@ -32,7 +32,7 @@ def route_total_distance(route, airports):
     for i in range(len(route) - 1):
         a = airports[route[i]]
         b = airports[route[i + 1]]
-        total += haversine_km(a.latitude, a.longtitude, b.latitude, b.longtitude)
+        total += haversine_km(a.latitude, a.longitude, b.latitude, b.longitude)
     return total
 
 def _build_path(parent, source, destination):
@@ -84,8 +84,8 @@ def dijkstra_shortest_distance(graph, airports, source, destination): #[3], [4]
                 continue
             
             edge_distance = haversine_km(
-                airports[current].latitude, airports[current].longtitude,
-                airports[neighbour].latitude, airports[neighbour].longtitude
+                airports[current].latitude, airports[current].longitude,
+                airports[neighbour].latitude, airports[neighbour].longitude
             )
             new_distance = current_distance + edge_distance
             

@@ -8,12 +8,12 @@ link to Github repo: https://github.com/SamQT-42/Airports-Route-Planner
 import csv #[1], [2]
 #mapping, skip airports with no IATA, and skip routes without airports(start and destination)
 class Airports:
-    def __init__(self, iata, name, country, latitude, longtitude):
+    def __init__(self, iata, name, country, latitude, longitude):
         self.iata = iata
         self.name = name
         self.country = country
         self.latitude = latitude
-        self.longtitude = longtitude
+        self.longitude = longitude
         
 def load_airports(filepath):
     airports = {}
@@ -29,8 +29,8 @@ def load_airports(filepath):
             name = row[1]
             country = row[3]
             latitude = float(row[6])
-            longtitude = float(row[7])
-            airports[iata] = Airports(iata, name, country, latitude, longtitude)
+            longitude = float(row[7])
+            airports[iata] = Airports(iata, name, country, latitude, longitude)
     return airports
 
 def load_routes(filepath, airports):
