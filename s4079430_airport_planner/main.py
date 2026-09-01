@@ -1,3 +1,5 @@
+#1st iteration log(2PM 31/08/2026): Added simple entry point, and checks if data is cleaned before continue building
+#2nd iteration log(): 
 from data_loader import load_network
 
 AIRPORTS_FILES = "data/airports.dat"

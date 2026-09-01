@@ -1,5 +1,3 @@
-#clean the data, drop contents that does not satisfy the format ID/Airport/FROM/TO/iata/longtitude/latitude
-
 import csv
 #mapping, skip airports with no IATA, and skip routes without airports
 class Airports:
