@@ -1,71 +1,57 @@
-Airport Route Planner
-COSC2469 - Algorithms & Analysis - Mini Project
-Student: Nguyen Dang Quoc An (s4079430)
+# Airports-Route-Planner
+Mini Project from course COSC2469 - Algorithms and Analysis
+## About
 
+This program builds a route network from the *[OpenFlights dataset](https://github.com/jpatokal/openflights/tree/master/data)* and answers two questions for any pair of airports:
 
-1. ENVIRONMENT SETUP
----------------------
-Requires Python 3 (developed and tested with Python 3.11 / 3.14). No
-external libraries are required - only the Python Standard Library
-(csv, math, time, heapq, collections).
+- What is the route with the **fewest flights**?
+- What is the route with the **shortest total estimated distance** (calculated using the Haversine formula)?
 
-Steps:
-1. Install Python 3 from https://www.python.org/downloads/ if not already
-   installed (on Windows, tick "Add Python to PATH" during install).
-2. Make sure the project folder has this structure:
+Computed using **BFS(Breadth First Search)** for minimum stops, **Dijkstra's algorithm** for shortest distance
 
-     s4079430_airport_planner/
-       main.py
-       data_loader.py
-       algorithms.py
-       data/
-         airports.dat
-         routes.dat
+## Requirements
 
-   airports.dat and routes.dat are the OpenFlights dataset files from:
-   https://github.com/jpatokal/openflights/tree/master/data
+- Python 3 (developed and tested on Python 3.11 / 3.14)
+- Standard Library only
 
+## Setup
 
-2. HOW TO RUN
----------------------
-1. Open a terminal (Command Prompt / PowerShell / Terminal).
-2. Change directory into the s4079430_airport_planner folder, e.g.:
-       cd path\to\s4079430_airport_planner
-3. Run:
-       python main.py
-   (use "python3 main.py" if "python" is not recognised)
-4. Enter a source airport IATA code when prompted, then a destination
-   IATA code (e.g. SGN, then MEL).
-5. The program prints the minimum-stop route and the shortest-distance
-   route, each with the flight sequence, number of flights, number of
-   stops, total estimated distance, and running time.
+1. Clone this repository or download it as a ZIP.
+2. Download `airports.dat` and `routes.dat` from the *[OpenFlights data folder](https://github.com/jpatokal/openflights/tree/master/data)* and place them inside `s4079430_airport_planner/data/`.
 
-Each run answers one query. To try another source/destination pair,
-run "python main.py" again.
+## How to run
 
+Open a terminal inside the `s4079430_airport_planner` folder and run:
 
-3. ASSUMPTIONS MADE
----------------------
-- Airports with no usable IATA code in airports.dat (stored as "\N" or
-  blank in the raw data) are excluded, since the program only looks
-  airports up by IATA code and such an airport could never be entered
-  as a valid query anyway.
-- Any route in routes.dat whose source or destination airport is not
-  present in the cleaned airport list above is dropped before the
-  route network is built. This follows the unit's own guidance that,
-  since this assessment is about algorithmic thinking rather than
-  error handling, missing/inconsistent data may be cleaned before use.
-  (See the Data Structure section of the technical report for the
-  exact number of routes this removed.)
-- When multiple airlines fly the same direct source-destination pair,
-  this is treated as a single directed connection in the route
-  network, since the planner reasons about reachability and distance
-  between airports, not about which airline operates the flight.
-- Airport IATA codes are accepted case-insensitively (converted to
-  uppercase automatically).
+```bash
+python main.py
+```
+You'll be shown a menu:
+1. Calculate minimum stop route
+2. Calculate shortest route
+3. Calculate both
+4. Exit the program
 
+Pick an option, then enter a source and destination **IATA airport code** (for example `SGN` and `MEL`). After each result you can choose `1. BACK` to return to the menu or `2. FIND ANOTHER ROUTE` to keep querying in the same mode.
 
-4. DEMO VIDEO
----------------------
-OneDrive link (accessible to the teaching team): [ADD LINK HERE AFTER
-RECORDING AND UPLOADING THE DEMO VIDEO]
+## Project structure
+s4079430_airport_planner/
+
+    ├── main.py entry point — menu, input, and orchestration
+    ├── data_loader.py loads and cleans the OpenFlights data
+    ├── algorithms.py BFS and Dijkstra implementations
+    ├── README.txt
+    └── data/
+      ├── airports.dat
+      └── routes.dat
+
+## Key assumptions
+- Airports with no valid IATA code are excluded, since queries are always by IATA code.
+- Routes referencing an airport missing from the cleaned airport list are dropped before the network is built.
+- Multiple airlines flying the same city pair count as a single connection.
+
+## Author
+Nguyễn Đặng Quốc An — s4079430 — COSC2469
+
+## License
+*[MIT](LICENSE)*
