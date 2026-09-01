@@ -6,7 +6,6 @@ Course: COSC2469
 link to Github repo: https://github.com/SamQT-42/Airports-Route-Planner
 """
 import csv #[1], [2]
-#mapping, skip airports with no IATA, and skip routes without airports(start and destination)
 class Airports:
     def __init__(self, iata, name, country, latitude, longitude):
         self.iata = iata
