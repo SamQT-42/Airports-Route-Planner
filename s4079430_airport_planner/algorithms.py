@@ -24,7 +24,7 @@ def route_total_distance(route, airports):
     for i in range(len(route) - 1):
         a = airports[route[i]]
         b = airports[route[i + 1]]
-        total += haversine_km(a.latitude, a.longtitudegit, b.latitude, b.longtitude)
+        total += haversine_km(a.latitude, a.longtitude, b.latitude, b.longtitude)
     return total
 
 def _build_path(parent, source, destination):

@@ -1,8 +1,9 @@
 #1st iteration log: Added simple entry point, and checks if data is cleaned before continue building
-#2nd iteration log: Apply BFS and testing
-#3rd iteration log: 
+#2nd iteration log: Apply BFS and testing (all test passed)
+#3rd iteration log: Apply Dijskta and testing (ongoing)
+
 import time
-from algorithms import bfs_min_stops, route_total_distance
+from algorithms import bfs_min_stops, route_total_distance, dijkstra_shortest_distance
 from data_loader import load_network
 
 AIRPORTS_FILES = "data/airports.dat"
@@ -44,6 +45,13 @@ def main():
     print_route(min_stop_route, airports)
     print(f"Running time: {min_stop_time:.4f} seconds")
     
-            
+    start_time = time.perf_counter()
+    shortest_route, shortest_distance = dijkstra_shortest_distance(graph, airports, source, destination)
+    shortest_time = time.perf_counter() - start_time
+    
+    print("\nShortest distance route:")
+    print_route(shortest_route, airports, distance=shortest_distance)
+    print(f"Running time: {min_stop_time:.4f} seconds")
+    
 if __name__ == "__main__":
     main()
